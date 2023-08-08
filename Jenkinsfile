@@ -9,7 +9,8 @@ node ('agent') {
     }
     stage ('Build') {
         //execute gradle build
-        sh './build.gradle clean build'
+        def gradleHome = tool 'gradle4'
+        sh "${gradleHome}/bin/gradle build"
     }
     stage ('Post') {
 
