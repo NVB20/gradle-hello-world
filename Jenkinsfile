@@ -1,6 +1,11 @@
 node ('agent') {
-    stage ('Checks') {
-        git url : https://github.com/NVB20/gradle-hello-world.git
+    stage ('Checkout') {
+        git(
+                    url: "https://github.com/NVB20/gradle-hello-world.git",
+                    branch: "master",
+                    changelog: true,
+                    poll: true
+                )
     }
     stage ('Build') {
         //execute gradle build
